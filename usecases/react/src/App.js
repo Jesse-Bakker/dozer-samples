@@ -1,7 +1,8 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Airports from "./components/airports";
-import { AirportsWrapper } from "./components/airportsWrapper";
+import Login from "./components/login";
+import Orders from "./components/orders";
+import Temperature from "./components/temperature";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
         <img src="https://getdozer.io/img/logo.svg" className="App-logo" alt="logo" />
         <BrowserRouter>
           <Routes>
-            <Route index element={<Airports />} />
-            <Route element={<AirportsWrapper />} path={"/airports"}/> />
+            <Route element={<Login />} path={"/login"} />
+            <Route element={<Orders />} path={"/orders/:jwt"} />
+            <Route index element={<Temperature />} path={"/"} />
           </Routes>
         </BrowserRouter>
       </header>

@@ -10,11 +10,8 @@ import {
     TextField
 } from "@mui/material";
 import {useNavigate} from "react-router-dom";
-import {useQueryCommon} from "@getdozer/dozer-react";
-import {Type} from "@getdozer/dozer-js/lib/esm/generated/protos/types";
-import {ApiClient} from "@getdozer/dozer-js";
 import {useState} from "react";
-import {AuthClient} from "@getdozer/dozer-js";
+import {AuthClient} from "@dozerjs/dozer";
 
 const MASTER_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYWNoZV91c2VyIiwic3ViIjoiYXBpQGRvemVyLmNvbSIsImV4cCI6MTY4MDUxMjI4MTA0MSwiYWNjZXNzIjoiQWxsIn0.lajm2jvzD-LtCn0tmuti4f1SR0P8YQwZ9zC5uEOgDtk'
 function Login() {

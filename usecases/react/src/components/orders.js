@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import {useParams, useSearchParams} from "react-router-dom";
-import {useQueryCommon, useOnEvent} from "@getdozer/dozer-react";
+import {useParams} from "react-router-dom";
+import {useQueryCommon} from "@dozerjs/dozer-react";
 
 function Orders(props) {
     const params = useParams();

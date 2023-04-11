@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Alert, Snackbar} from "@mui/material";
-import {useQueryCommon, useOnEvent} from "@getdozer/dozer-react";
+
 import {
     Charts,
     ChartContainer,
@@ -12,6 +12,7 @@ import {
 
 import { TimeSeries } from "pondjs";
 import { Index } from "pondjs";
+import {useOnEvent, useQueryCommon} from "@dozerjs/dozer-react";
 
 function pad(num, size) {
     num = num.toString();
@@ -26,12 +27,14 @@ function Temperature(props) {
     const { records: events } = useQueryCommon("events", query);
 
     useOnEvent('events', (data, _1, _2, mapper) => {
+        console.log(data.getNew().getValuesList());
+        console.log(mapper);
         console.log(mapper.mapRecord(data.getNew().getValuesList()));
         setValues(recs => {
             return [...recs, mapper.mapRecord(data.getNew().getValuesList())]
         });
 
-        if (mapper.mapRecord(data.getNew().getValuesList()).temperature <= 23) {
+        if (mapper.mapRecord(data.getNew().getValuesList()).temperature <= 22.8) {
             setOpen(false);
         }
     });
@@ -52,6 +55,7 @@ function Temperature(props) {
     }, [events])
 
 
+    console.log(values);
     if (values.length === 0) {
         return null;
     }

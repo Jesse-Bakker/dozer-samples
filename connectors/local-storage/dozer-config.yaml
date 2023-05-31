@@ -1,4 +1,4 @@
-connections:    
+connections:
   - config : !LocalStorage
       details:
         path: data

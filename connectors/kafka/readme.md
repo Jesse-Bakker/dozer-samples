@@ -15,6 +15,10 @@ kubectl apply -f 02.kafka.yaml
 kubectl apply -f 03.sr.yaml
 ```
 
+## Create topic 
+```shell
+kubectl exec -it $(kubectl get pod -n kafka -l app=kafka-broker -o jsonpath="{.items[0].metadata.name}") -n kafka -- kafka-topics.sh --create --topic transactions --bootstrap-server localhost:9092
+```
 ## Run port forwarding
 ```shell
 kubectl port-forward $(kubectl get pod -n kafka -l app=kafka-broker -o jsonpath="{.items[0].metadata.name}") 9092 -n kafka &
